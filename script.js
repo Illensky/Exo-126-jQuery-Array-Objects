@@ -29,3 +29,32 @@ $.each(arrObj, function(index, value) {
    console.log("Affichage age utilisant jQuery = " + value.age);
 });
 
+
+count = 0
+
+const container = $('#container')
+const div = document.createElement("div")
+const img = document.createElement("img")
+img.src = arrObj[count].avatar
+div.appendChild(img)
+container[0].prepend(div)
+
+$('#left').click(function () {
+if (count > 0) {
+    count--
+}
+else {
+    count = arrObj.length -1
+}
+    img.src = arrObj[count].avatar
+})
+
+$('#right').click(function () {
+    if (count < arrObj.length -1) {
+        count++
+    }
+    else {
+        count = 0
+    }
+    img.src = arrObj[count].avatar
+})
